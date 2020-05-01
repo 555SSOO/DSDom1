@@ -16,10 +16,12 @@ class Util {
     // This variable can be set manually if you are sure the persistent /votes node is already set
     private static boolean persistentNodeSet = false;
 
+    // Randomly get either 0 or 1
     static int binaryRandom() {
         return (int) Math.round(Math.random());
     }
 
+    // Initialize the persistent node /votes
     static void initPersistentNode() throws IOException, KeeperException, InterruptedException {
         if(!persistentNodeSet) {
             new ZooKeeper("localhost:2181", 5000, event -> {})
